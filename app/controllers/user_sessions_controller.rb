@@ -5,7 +5,7 @@ class UserSessionsController < ApplicationController
     @user = login(params[:email], params[:password])
 
     if @user
-      redirect_back_or_to(root_path, notice: 'ウェーイ')
+      redirect_back_or_to(posts_path, notice: 'ウェーイ')
     else
       flash.now[:alert] = 'フー！！'
       render action: 'new'
@@ -14,6 +14,6 @@ class UserSessionsController < ApplicationController
 
   def destroy
     logout
-    redirect_to(root_path, notice: 'wei')
+    redirect_to(posts_path, notice: 'wei')
   end
 end
