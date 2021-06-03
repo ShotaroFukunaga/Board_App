@@ -14,6 +14,6 @@ class UserSessionsController < ApplicationController
 
   def destroy
     logout
-    redirect_to(posts_path, notice: 'wei')
+    redirect_to(login_path, notice: 'wei')
   end
 end
