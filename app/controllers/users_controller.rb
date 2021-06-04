@@ -22,8 +22,9 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save
-      redirect_to login_path, notice: 'User was successfully created.'
+      redirect_to login_path, success: t('.success') #add_flash_typeを定義していればflash:を省略できる
     else
+      flash.now[:danger] = t('.fail')
       render :new
     end
   end
@@ -31,7 +32,7 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1
   def update
     if @user.update(user_params)
-      redirect_to @user, notice: 'User was successfully updated.'
+      redirect_to @user
     else
       render :edit
     end

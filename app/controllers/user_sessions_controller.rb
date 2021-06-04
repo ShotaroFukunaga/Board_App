@@ -5,15 +5,16 @@ class UserSessionsController < ApplicationController
     @user = login(params[:email], params[:password])
 
     if @user
-      redirect_back_or_to(posts_path, notice: 'ウェーイ')
+      redirect_back_or_to(posts_path, success: I18n.t('flash_message.login_success'))
+      #flash[:notice] = 'ログインしました'<-通常の書き方
     else
-      flash.now[:alert] = 'フー！！'
+      flash.now[:danger] = t('.fail')
       render action: 'new'
     end
   end
 
   def destroy
     logout
-    redirect_to(login_path, notice: 'wei')
+    redirect_to login_path, success: t('.success')
   end
 end
