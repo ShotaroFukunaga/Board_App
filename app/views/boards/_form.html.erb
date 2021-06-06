@@ -1,0 +1,11 @@
+<%= form_with model: board, local: true do |f| %>
+    <div class="form-group">
+      <%= f.label :title %><br/>
+      <%= f.text_field :title, class: 'form_control', size: '70x20' %>
+    </div>
+    <div class="form-group">
+      <%= f.label :body %><br/>
+      <%= f.text_area :body, class: 'form_control', rows: 10, size: '70x15'%>
+    </div>
+      <%= f.submit class: 'btn btn-primary' %>
+<%end%>
