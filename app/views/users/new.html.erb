@@ -1,17 +1,7 @@
 <h1><%= t '.title'%></h1>
 <%= form_with(model: @user, local: true) do |form| %>
+  <%= render 'shared/error_messages', {object: form.object} %>
 
-    <% if @user.errors.any? %>
-    <div id="error_explanation">
-      <ul>
-      <% @user.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-    <% end %>
-    
-  
     <div class="field">
       <%= form.label :first_name %><br/>
       <%= form.text_field :first_name %>
