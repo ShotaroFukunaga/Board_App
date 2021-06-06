@@ -4,6 +4,8 @@ ja:
     login: 'ログイン'
     register: '登録'
     logout: 'ログアウト'
+    message:
+      require_login: 'ログインしてください'
   users:
     new:
       title: 'ユーザー登録'
@@ -34,4 +36,8 @@ ja:
   profiles:
     show:
       title: 'プロフィール'
+  boards:
+    index:
+      no_boards: '掲示板がありません'
+      title: '掲示板一覧'
   

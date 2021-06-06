@@ -10,4 +10,5 @@ class User < ApplicationRecord
   validates :password_confirmation, presence: true, if: -> { new_record? || canges[crypted_password] }
 
   has_many :posts, dependent: :destroy
+  has_many :boards, dependent: :destroy
 end

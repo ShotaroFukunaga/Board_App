@@ -9,12 +9,12 @@
       <ul class="navbar-nav ml-auto main-nav align-items-center">
         <li class="nav-item dropdown dropdown-slide">
           <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Post
+            <%= Board.model_name.human %>
           </a>
 
           <div class="dropdown-menu dropdown-menu-right">
-            <%= link_to 'Post一覧', posts_path, class: 'dropdown-item' %>
-            <%= link_to 'Post作成', new_post_path, class: 'dropdown-item' %>
+            <%= link_to (t 'boards.index.title'), boards_path, class: 'dropdown-item' %>
+            <%= link_to '作成', new_post_path, class: 'dropdown-item' %>
           </div>
         </li>
 
@@ -22,6 +22,7 @@
           <%= link_to 'Like一覧', '#', class: 'nav-link' %>
         </li>
 
+        
         <li class="nav-item dropdown dropdown-slide">
           <a href="#" class="nav-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="header-profile">
             <%= image_tag 'sample', size: '40x40', class: 'rounded-circle mr15'%>
