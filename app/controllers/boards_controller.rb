@@ -8,6 +8,7 @@ class BoardsController < ApplicationController
   end
 
   def create
+    
     @board = current_user.boards.build(board_params)
 
     if @board.save
@@ -28,6 +29,7 @@ class BoardsController < ApplicationController
   end
 
   def board_params
-    params.require(:board).permit(:title, :body)
+    params.require(:board).permit(:title, :body, :board_image, :board_image_cache)
+    
   end
 end
