@@ -10,6 +10,7 @@ ja:
     models:
       user: 'ユーザー'
       board: '掲示板'
+      comment: 'コメント'
     attributes:
       user:
         first_name: '名前'

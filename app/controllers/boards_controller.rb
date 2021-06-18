@@ -20,6 +20,9 @@ class BoardsController < ApplicationController
   end
 
   def show
+    @board = Board.find(params[:id])
+    @comment = Comment.new
+    @comments = @board.comments.includes(:user).order(created_at: :desc)
   end
 
   def edit
@@ -27,6 +30,8 @@ class BoardsController < ApplicationController
 
   def destroy
   end
+
+  private
 
   def board_params
     params.require(:board).permit(:title, :body, :board_image, :board_image_cache)

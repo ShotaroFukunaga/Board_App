@@ -1,0 +1,11 @@
+
+<div class="row mb-3">
+  <div class="col-lg-8 offset-lg-2">
+    <%= form_with model: comment, url: [board, comment], local: true do |f| %>
+      <%= render 'shared/error_messages', object: f.object %>
+      <%= f.label :body %>
+      <%= f.text_area :body, class: 'form_control mb-3',placeholder: Comment.human_attribute_name(:body), rows: 4, size: '90x3'%>
+      <%= f.submit t('defaults.post'), class: 'btn btn-primary' %>
+    <%end%>
+  </div>
+</div>
