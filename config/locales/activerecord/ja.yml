@@ -22,6 +22,8 @@ ja:
         title: 'タイトル'
         body: '本文'
         board_image: 'サムネイル'
+      comment:
+        body: 'コメント'
   date:
     abbr_day_names:
     - 日
