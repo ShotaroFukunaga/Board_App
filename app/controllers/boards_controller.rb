@@ -1,4 +1,6 @@
 class BoardsController < ApplicationController
+
+  before_action :set_board, only: %i[destroy edit update]
   def index
     @boards = Board.includes(:user).order(created_at: :desc)
   end
@@ -25,13 +27,27 @@ class BoardsController < ApplicationController
     @comments = @board.comments.includes(:user).order(created_at: :desc)
   end
 
-  def edit
+  def edit;end
+
+  def update
+    if @board.update(board_params)
+      redirect_to board_path, success: t('defaults.message.update', item: Board.model_name.human)
+    else
+      flash.now[:danger] = t('defaults.message.not_update', item: Board.model_name.human)
+      render :edit
+    end
   end
 
   def destroy
+    @board.destroy!
+    redirect_to boards_path, success: t('defaults.message.delete', item: Board.model_name.human)
   end
 
   private
+
+  def set_board
+    @board = current_user.boards.find(params[:id])
+  end
 
   def board_params
     params.require(:board).permit(:title, :body, :board_image, :board_image_cache)
