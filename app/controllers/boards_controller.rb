@@ -43,6 +43,10 @@ class BoardsController < ApplicationController
     redirect_to boards_path, success: t('defaults.message.delete', item: Board.model_name.human)
   end
 
+  def bookmarks
+    @bookmark_boards = current_user.bookmarks_boards.includes(:user).order(created_at: :desc)
+  end
+
   private
 
   def set_board

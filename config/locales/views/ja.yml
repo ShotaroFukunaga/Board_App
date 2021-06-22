@@ -13,6 +13,8 @@ ja:
       update: '%{item}を更新しました'
       not_update: '%{item}を更新できませんでした'
       delete_confirm: '削除しますか？'
+      set: '%{item}しました'
+      remove: '%{item}を外しました'
   users:
     new:
       title: 'ユーザー登録'
@@ -45,4 +47,12 @@ ja:
       title: '掲示板詳細'
     edit:
       title: '掲示板編集'
+    bookmarks:
+      title: 'ブックマーク一覧'
+      no_result: 'ブックマーク中の掲示板がありません'
+  bookmarks:
+    create:
+      success: 'ブックマークしました'
+    destroy:
+      success: 'ブックマークを外しました'
   

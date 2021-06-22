@@ -11,6 +11,7 @@ ja:
       user: 'ユーザー'
       board: '掲示板'
       comment: 'コメント'
+      bookmark: 'ブックマーク'
     attributes:
       user:
         first_name: '名前'
@@ -24,6 +25,7 @@ ja:
         board_image: 'サムネイル'
       comment:
         body: 'コメント'
+
   date:
     abbr_day_names:
     - 日
