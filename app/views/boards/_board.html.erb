@@ -10,7 +10,7 @@
             <%if current_user.own?(board)%>
               <%= render 'crud_menus', board: board %>
             <%else%>
-              <%=render 'bookmarks/bookmark_button', board: board%>
+              <%=render 'bookmark_button', board: board%>
             <%end%>
             <ul class="list-inline">
               <li class="list-inline-item"><i class="far fa-user"></i><%= board.user.decorate.full_name %></li>
