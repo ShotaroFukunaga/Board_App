@@ -17,6 +17,7 @@
       <div class="row">
        <%if @boards.present?%>
         <%= render @boards %>
+        <%= paginate @boards, theme: 'twitter-bootstrap-4'%>
        <%else%>
         <h1><%= t '.no_boards'%></h1>
        <%end%>
