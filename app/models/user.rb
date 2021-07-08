@@ -18,6 +18,8 @@ class User < ApplicationRecord
 
   mount_uploader :avatar, UserAvatarUploader
 
+  enum role: { general: 0, admin: 1 }
+
   def bookmark(board)
     bookmarks_boards << board
   end
