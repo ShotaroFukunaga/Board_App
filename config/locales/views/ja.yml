@@ -7,6 +7,10 @@ ja:
     logout: 'ログアウト'
     post : '投稿'
     send: '送信'
+    edit: '編集'
+    destroy: '削除'
+    show: '詳細'
+    unspecified: '指定なし'
     message:
       require_login: 'ログインしてください'
       created: '%{item}を作成しました'
@@ -15,6 +19,7 @@ ja:
       update: '%{item}を更新しました'
       not_update: '%{item}を更新できませんでした'
       delete_confirm: '削除しますか？'
+      not_authorized: '権限がありません'
       set: '%{item}しました'
       remove: '%{item}を外しました'
   users:
@@ -86,3 +91,19 @@ ja:
     dashboards:
       index:
         title: 'ダッシュボード'
+    users:
+      index:
+        title: 'ユーザー一覧'
+      show:
+        title: 'ユーザー詳細'
+      edit:
+        title: 'ユーザー編集'
+    boards:
+      index:
+        title: '掲示板一覧'
+      show:
+        title: '掲示板詳細'
+        text: '本文'
+      edit:
+        title: '掲示板編集'
+

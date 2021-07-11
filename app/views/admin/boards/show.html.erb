@@ -1,0 +1,39 @@
+<%= content_for(:title, @board.title) %>
+<div class="container">
+    <div class="row">
+      <div class="col-md-10 offset-md-1 col-lg-8 offset-lg-2">
+        <h1><%= t('.title')%></h1>
+        <div text class="text-right mb-3">
+            <%= link_to (t 'defaults.edit'), edit_admin_board_path(@board), class: 'btn btn-success' %>
+            <%= link_to (t 'defaults.destroy'),admin_board_path(@board), class: 'btn btn-danger', method: :delete, data: { confirm: t('defaults.message.delete_confirm')} %>
+        </div>
+        <table class="table table-bordered bg-white">
+            <tbody>
+              <tr>
+                <th scope="col"><%= Board.human_attribute_name(:id)%></th>
+                <td><%= @board.id %></td>
+              </tr>
+              <tr>
+                <th scope="col"><%= Board.human_attribute_name(:title)%></th>
+                <td><%= @board.title %></td>
+              </tr>
+              <tr>
+                <th scope="col"><%= Board.human_attribute_name(:body)%></th>
+                <td><%= @board.body %></td>
+              </tr>
+              <tr>
+                <th scope="col"><%= Board.human_attribute_name(:user)%></th>
+                <td><%= @board.user.decorate.full_name%>
+              <tr>
+                <th scope="row"><%= Board.human_attribute_name(:board_image)%></th>
+                <td><%= image_tag @board.board_image.url, size: '400x300' %></td>
+              </tr>
+              <tr>
+                <th scope="col"><%= Board.human_attribute_name(:created_at)%></th>
+                <td><%= l @board.created_at, format: :short %></td>
+              </tr>
+            </tbody>
+        </table>
+      </div>
+    </div>
+</div>

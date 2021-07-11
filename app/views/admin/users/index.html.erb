@@ -1,0 +1,56 @@
+<%= content_for(:title, (t '.title')) %>
+<div class="container mb-5 pt-2">
+    <h1><%= t('.title')%></h1>
+    <div class="row">
+      <div class="col-md-12 mb-3">
+      
+        <%=search_form_for @search, url: admin_users_path do |f|%>
+        <div class="row">
+          <div class="form-inline align-items-center mx-auto">
+            <div class="col-auto">
+              <%= f.search_field :first_name_or_last_name_cont, placeholder: (t 'defaults.search_word'), class: 'form-control'%>
+              <%= f.select :role_eq,
+                    User.roles_i18n.invert.map{ |key, value| [key, User.roles[value]]},
+                    {include_blank: (t 'defaults.unspecified')},
+                    {class: 'form-control mr-1'}%>
+              <%= f.submit class: 'btn btn-primary'%>
+            </div>
+          </div>
+        </div>
+        <%end%>
+
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                <th scope="col"><%= User.human_attribute_name(:id) %></th>
+                <th scope="col"><%= User.human_attribute_name(:full_name) %></th>
+                <th scope="col"><%= User.human_attribute_name(:role) %></th>
+                <th scope="col"><%= User.human_attribute_name(:created_at) %></th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <% @users.each do |user| %>
+                <tr>
+                    <td><%= user.id %></td>
+                    <td><%= user.decorate.full_name %></td>
+                    <td><%= user.role_i18n %></td>
+                    <td><%= l user.created_at, format: :short %></td>
+                  <td>
+                    <%= link_to (t 'defaults.show'), admin_user_path(user), class: 'btn btn-info' %>
+                    <%= link_to (t 'defaults.edit'), edit_admin_user_path(user), class: 'btn btn-success' %>
+                    <%= link_to (t 'defaults.destroy'),admin_user_path(user), class: 'btn btn-danger', method: :delete, data: { confirm: t('defaults.message.delete_confirm')} %>
+                  </td>
+                </tr>
+                <% end %>
+            </tbody>
+            
+        </table>
+      </div>
+    </div>
+    <div class="col-md-12">
+      <nav>
+        <%= paginate @users, theme: 'twitter-bootstrap-4'%>
+      </nav>
+    </div>
+</div>
