@@ -17,4 +17,5 @@
 //= require activestorage
 //= require turbolinks
 //= require cable.js
+//= require edit_comment.js
 //= require common.js

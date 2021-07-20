@@ -5,7 +5,7 @@ $(function() {
         switchToEdit(commentID)
     })
 
-    $(document).on("click", '.js-button-comment-cancel', function() {
+    $(document).on("click", '.js-button-edit-comment-cancel', function() {
         clearErrorMessages()
         const commentID = $(this).data("comment-id")
         switchToLabel(commentID)
