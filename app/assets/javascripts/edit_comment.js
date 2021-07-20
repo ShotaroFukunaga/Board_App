@@ -54,10 +54,10 @@ $(function() {
                     }
                 }
             //commentコントローラーにデータを送信、帰ってきたstatusの値(okまたはbad)によって処理が分けられる。
-            }).done(function (result) {//後に実行したい処理のメソッド
-                resolve(result)//処理が成功した時にメッセージを表示する関数
-            }).fail(function (result) {//エラーが発生した時のメソッド
-                reject(result)//処理が失敗した時にメッセージを表示する関数
+            }).done(function (result) {//done(後に実行したい処理の関数
+                resolve(result)//resolve(処理が成功した時にメッセージを表示する関数
+            }).fail(function (result) {//fail(エラーが発生した時の関数
+                reject(result)//reject(処理が失敗した時にメッセージを表示する関数
             });
         })
     }

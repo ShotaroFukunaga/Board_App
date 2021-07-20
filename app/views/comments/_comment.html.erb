@@ -5,25 +5,30 @@
     </td>
     <td>
         <h3 class="small"><%= comment.user.decorate.full_name %></h3>
+        <!-- edit_comment.js-->
         <div id="js-comment-<%= comment.id %>">
         <%= simple_format(comment.body) %>
         </div>
         <div id="js-textarea-comment-box-<%= comment.id %>" style="display: none;">
         <textarea id="js-textarea-comment-<%= comment.id %>" class="form-control mb-1"><%= comment.body %></textarea>
+        <!-- data属性を<%= comment.id %>とすることで一意生を持たせている-->
         <button class="btn btn-light js-button-edit-comment-cancel" data-comment-id="<%= comment.id %>">キャンセル</button>
         <button class="btn btn-success js-button-comment-update" data-comment-id="<%= comment.id %>">更新</button>
         </div>
+        <!-- ここまで -->
     </td>
 
     <%if current_user.own?(comment)%>
     <td class="action">
         <ul class="list-inline justify-content-center" style="float: right;">
             <li class="list-inline-item">
+            <!-- edit_comment.js-->
               <div class="btn btn-secondary text-white">
                 <span data-comment-id=<%= comment.id%> class="js-edit-comment-button">
-                    <%= icon 'fa', 'pen' %>
+                    <%= icon 'fa', 'pen' %><!-- テキストを表示する関数へ-->
                 </span>
               </div>
+            <!-- ここまで -->
             </li>
             <li class="list-inline-item">
                 <%= link_to comment_path(comment), class:'btn btn-danger text-white',id: "js-delete-comment-button", remote: true, data: {confirm: t('defaults.message.delete_confirm')}, method: :delete do %>
